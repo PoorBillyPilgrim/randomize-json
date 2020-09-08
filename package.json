@@ -1,12 +1,14 @@
 {
   "name": "randomize-json",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple Node.js script for randomizing JSON array",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "Node.js"
+  ],
+  "author": "Tyler Jones",
   "license": "ISC"
 }
