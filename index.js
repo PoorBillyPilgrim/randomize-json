@@ -3,13 +3,6 @@ let data = require('./data.json');
 
 const total = data.array.length;
 
-let n = 0;
-let nums = [];
-while (n < total) {
-    nums.push(n);
-    n++;
-}
-
 const randomNums = (max, arr, cb) => {
     let num, randomNums = [];
     while (randomNums.length != max) {
@@ -21,16 +14,25 @@ const randomNums = (max, arr, cb) => {
     return cb(randomNums, arr);
 }
 
-const shuffleArr = (arr, randomNums) => {
+const shuffleNums = (arr, randomNums, cb) => {
     let newArr = [];
     for (let i = 0; i < randomNums.length; i++) {
         newArr.push(arr[randomNums[i]]);
     }
-    console.log(newArr);
+    return cb(newArr);
 }
 
 
-randomNums(total, data.array, (x) => {
-    shuffleArr(data.array, x);
-})
+randomNums(total, data.array, (randomNums) => {
+    shuffleNums(data.array, randomNums, (randomizedData) => {
+        let randomData = JSON.stringify({ "array": randomizedData }, null, 2);
+        console.log(randomizedData.length);
+        fs.writeFile('data.json', randomData, (err) => {
+            if (err) throw err;
+        });
+    });
+});
+
+
+
 
