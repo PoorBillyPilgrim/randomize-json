@@ -5,8 +5,19 @@ The tweets' contents were saved in the JSON file as an array of objects:
 ```js
 {
     "tweets":[
-        { ... },
-        { ... }
+        { "tweet": 1 },
+        { "tweet": 2 },
+        { "tweet": 3 }
+    ]
+}
+```
+The script will spit out a new array with the tweets now randomly organized
+```js
+{
+    "tweets":[
+        { "tweet": 3 },
+        { "tweet": 1 },
+        { "tweet": 2 }
     ]
 }
 ```
